@@ -23,7 +23,7 @@ This makes development of small scripts somewhat easier, but it means that in la
   * Function arguments and return values are also untyped and have similar problems.
 
 In practice, Lua programs over (say) 1000 lines tend to accumulate these kinds of problems, making debugging difficult.
-A standard Lua practice to deal with undefined global variables is to install a special 'get-value' handler on the global variable table that warns when undefined globals are accessed. This is of limited benefit because problems are still only detected at runtime.
+A standard Lua practice to deal with undefined global variables is to install a special 'get-value' handler on the global variable table that warns when undefined globals are accessed. This is of limited benefit because problems are still only detected at run-time.
 
 Lua Checker is designed to solve these problems. It performs a static analysis of Lua source code prior to it being run, and prints out warnings about any problems that it finds.
 
@@ -84,7 +84,7 @@ The available flags are
 
 The interesting parts of Lua Checker are implemented within bison parsers.
 Two separate parsers are used, that are run by two separate programs:
-  # {{{lua_simplifier}}} takes the original Lua source code and rewrites it into a simpler form. The simplifed source has most syntactic sugar expanded out and has fewer syntactic ambiguities (mostly achieved by putting semicolon at the end of every line). See the comments at the start of {{{lua.y}}} for a detailed description. The point of simplification is to allow the actual Lua checking code to live within a much simpler parser that does not have to also deal with complex Lua syntax issues.
+  # {{{lua_simplifier}}} takes the original Lua source code and rewrites it into a simpler form. The simplified source has most syntactic sugar expanded out and has fewer syntactic ambiguities (mostly achieved by putting semicolon at the end of every line). See the comments at the start of {{{lua.y}}} for a detailed description. The point of simplification is to allow the actual Lua checking code to live within a much simpler parser that does not have to also deal with complex Lua syntax issues.
   # {{{lua_checker}}} takes the simplified Lua source and actually performs the checks.
 
 == Future ==

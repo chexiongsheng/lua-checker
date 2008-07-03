@@ -55,6 +55,7 @@ TODO:
 	* dofile() returns values returned by chunk (with return?). if the dofile
 	  return is expanded inline, that wont work (it will terminate the dofile
 	  caller early).
+        * Warn about updating a table that is being traversed with for ... in pairs().
 
 DONE:
 	* -no-reassignment-of-function-variables (make them implicitly constant)
